@@ -1,4 +1,5 @@
 import React from 'react';
+import Textarea from 'react-textarea-autosize'; // 追加
 
 export default class MemoItem extends React.Component {
   constructor(props) {
@@ -42,10 +43,11 @@ export default class MemoItem extends React.Component {
         <a href="#" onClick={this.onClick} className="remove-button">
           &times;
         </a>
-        <textarea
+        <Textarea
           className="textarea"
           value={textAreaValue}
           onChange={this.onChange}
+          minRows={7}
         />
       </div>
     );
