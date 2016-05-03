@@ -14,12 +14,16 @@ export default class AppLayout extends React.Component {
   }
 
   render() {
-    const { memos, removeMemo } = this.props;
+    const { memos, removeMemo, updateMemoContent } = this.props;
     return (
       <div className="container">
         <Header />
         <button className="add-button" onClick={this.onClick}>Add</button>
-        <MemoList memos={memos} removeMemo={removeMemo} />
+        <MemoList
+          memos={memos}
+          removeMemo={removeMemo}
+          updateMemoContent={updateMemoContent}
+        />
       </div>
     );
   }
@@ -29,4 +33,5 @@ AppLayout.propTypes = {
   memos: React.PropTypes.array.isRequired,
   createMemo: React.PropTypes.func.isRequired,
   removeMemo: React.PropTypes.func.isRequired,
+  updateMemoContent: React.PropTypes.func.isRequired,
 };

@@ -3,11 +3,16 @@ import MemoItem from './MemoItem';
 
 export default class MemoList extends React.Component {
   render() {
-    const { memos, removeMemo } = this.props;
+    const { memos, removeMemo, updateMemoContent } = this.props;
     return (
       <div className="memo-list">
         {memos.map(memo => (
-          <MemoItem key={memo._id} memo={memo} removeMemo={removeMemo}/>
+          <MemoItem
+            key={memo._id}
+            memo={memo}
+            removeMemo={removeMemo}
+            updateMemoContent={updateMemoContent}
+          />
         ))}
       </div>
     );
@@ -17,4 +22,5 @@ export default class MemoList extends React.Component {
 MemoList.propTypes = {
   memos: React.PropTypes.array.isRequired,
   removeMemo: React.PropTypes.func.isRequired,
+  updateMemoContent: React.PropTypes.func.isRequired,
 };
