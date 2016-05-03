@@ -1,17 +1,18 @@
 import AppLayout from '../layouts/AppLayout';
 import { Memos } from '../../api/memos/memos';
 import { createContainer } from 'meteor/react-meteor-data';
+import { Meteor } from 'meteor/meteor';
 
 const createMemo = content => {
-  Memos.insert({content});
+  Meteor.call('Memos.insert', content);
 };
 
 const removeMemo = memoId => {
-  Memos.remove({_id: memoId});
+  Meteor.call('Memos.remove', memoId);
 };
 
 const updateMemoContent = (memoId, content) => {
-  Memos.update({_id: memoId}, {$set: {content}});
+  Meteor.call('Memos.update', memoId, content);
 };
 
 export default createContainer(() => {

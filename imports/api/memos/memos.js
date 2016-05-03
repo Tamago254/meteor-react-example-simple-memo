@@ -10,6 +10,12 @@ class MemosCollection extends Mongo.Collection {
 
 export const Memos = new MemosCollection('Memos');
 
+Memos.deny({
+  insert() { return true; },
+  update() { return true; },
+  remove() { return true; },
+});
+
 // for debug
 if (Meteor.isDevelopment) {
   global.collections = global.collections || {};
