@@ -1,6 +1,14 @@
 import { Mongo } from 'meteor/mongo';
 
-export const Memos = new Mongo.Collection('Memos');
+class MemosCollection extends Mongo.Collection {
+  insert(doc, callback) {
+    doc.createdAt = doc.createdAt || new Date();
+    const result = super.insert(doc, callback);
+    return result;
+  }
+}
+
+export const Memos = new MemosCollection('Memos');
 
 // for debug
 if (Meteor.isDevelopment) {
