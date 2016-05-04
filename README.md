@@ -1,4 +1,4 @@
-# Meteor React Tutorial
+# Meteor React Example
 
 https://www.gitbook.com/book/j-hack/meteor-1-3-react-tutorial
 
